@@ -146,4 +146,13 @@
 			}
 		}
 		
+		//Update Image Thumbnail Navigation
+		function updateNav(pos) {
+			nav.find('li').removeClass('active');
+			nav.find('li:eq('+pos+')').addClass('active');
+		}
+		
+		buildGallery();
+	}
+		
 })(this);		
