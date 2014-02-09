@@ -36,3 +36,22 @@
 			}
 		}
 	}
+	
+	//Toggle navigation for small screens
+	function setNav() {
+		var $anchorLinks = $('#nav-anchors').find('a');
+		$anchorLinks.click(function(e){
+			e.preventDefault();
+			var $this = $(this),
+				thisHref = $this.attr('href');
+			$('.reveal').hide();
+			if($this.hasClass('active')) {
+				$this.removeClass('active');
+				$(thisHref).hide();
+			} else {
+				$anchorLinks.removeClass('active');
+				$this.addClass('active');
+				$(thisHref).show();
+			}
+		});
+	}
