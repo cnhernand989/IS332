@@ -106,3 +106,20 @@
 			});
 			loadImg(0); //Load initial image
 		}
+		
+		//Build Swipe Carousel
+		function buildSwipe() {
+			//Initialize Swipe.js
+			var imgList = document.getElementById('img-list');
+			w.mySwipe = new Swipe(imgList, {
+				callback: function(event, index, elem) {
+					updateNav(index);
+					loadImg(index+1);
+				}	
+			});
+			imgList.addEventListener('touchstart', function(event) {
+    			loadImg(w.mySwipe.getPos()+1);
+			}, false);
+		}
+		
+})(this);		
