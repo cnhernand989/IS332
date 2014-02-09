@@ -802,7 +802,14 @@ header[role="banner"] .nav {
 }
 /************End Structure**************/
 
+/************Mobile Queries**************/
+@media screen and (min-width: 28.75em) {
+.related-products li {
+		width: 33.3333333%;
+	}
+}
 
+/************Mobile Queries**************/
 
 
 
