@@ -154,5 +154,21 @@
 		
 		buildGallery();
 	}
+	
+	//Set up Auxiliary content
+	$('.aux header a').addClass('disabled');
+	
+	function loadAux() {
+		var $aux = $('.aux');
+		$aux.each(function(index) {
+			var $this = $(this),
+				auxLink = $this.find('a'), 
+				auxFragment = auxLink.attr('href'),
+				auxContent = $this.find('[role=tabpanel]');
+			if(auxContent.size()===0 && $this.hasClass('loaded')===false){
+				loadContent(auxFragment,$this);
+			}
+		});
+	}
 		
 })(this);		
