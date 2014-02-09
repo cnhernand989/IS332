@@ -421,3 +421,29 @@ td,
 th {
     padding: 0;
 }
+
+
+/************Global**************/
+h1 {
+	font-size: 2em;
+}
+h2 {
+	font-size: 1.6em;
+}
+.btn {
+	display: inline-block;	
+}
+/************End Global**************/
+
+
+
+
+
+
+
+
+
+
+
+
+
