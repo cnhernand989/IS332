@@ -3,3 +3,36 @@
 
 /*! A fix for the iOS orientationchange zoom bug. Script by @scottjehl, rebound by @wilto.MIT License.*/
 (function(m){var l=m.document;if(!l.querySelector){return}var n=l.querySelector("meta[name=viewport]"),a=n&&n.getAttribute("content"),k=a+",maximum-scale=1",d=a+",maximum-scale=10",g=true,j,i,h,c;if(!n){return}function f(){n.setAttribute("content",d);g=true}function b(){n.setAttribute("content",k);g=false}function e(o){c=o.accelerationIncludingGravity;j=Math.abs(c.x);i=Math.abs(c.y);h=Math.abs(c.z);if(!m.orientation&&(j>7||((h>6&&i<8||h<8&&i>6)&&j>5))){if(g){b()}}else{if(!g){f()}}}m.addEventListener("orientationchange",f,false);m.addEventListener("devicemotion",e,false)})(this);
+
+(function(w){
+	var sw = document.body.clientWidth,
+		sh = document.body.clientHeight,
+		breakpoint = 650,
+		speed = 800,
+		mobile = true;
+		
+	$(document).ready(function() {
+		checkMobile();
+		setNav();
+		setImg();
+	});
+		
+	$(w).resize(function(){ //Update dimensions on resize
+		sw = document.body.clientWidth;
+		sh = document.body.clientHeight;
+		checkMobile();
+	});
+	
+	//Check if Mobile
+	function checkMobile() {
+		mobile = (sw > breakpoint) ? false : true;
+		if (!mobile) { //If Not Mobile
+			loadAux();
+			$('.aux header a').addClass('disabled').addClass('open');
+			$('[role="tabpanel"],#nav,#search').show(); //Show full navigation and search
+		} else { //Hide 
+			if(!$('#nav-anchors a').hasClass('active')) {
+				$('#nav,#search').hide();
+			}
+		}
+	}
